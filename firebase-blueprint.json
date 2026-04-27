@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "PajskDataEntry": {
+      "title": "PAJSK Data",
+      "description": "Aggregate PAJSK data for a specific year and stream",
+      "type": "object",
+      "properties": {
+        "tahun": {
+          "type": "number",
+          "description": "Year of the data"
+        },
+        "aliran": {
+          "type": "string",
+          "description": "Stream/Class (e.g., Tahun 4, Keseluruhan)"
+        },
+        "jumlahPelajar": {
+          "type": "number",
+          "description": "Total students"
+        },
+        "gredA": {
+          "type": "number",
+          "description": "Total Grade A"
+        },
+        "gredB": {
+          "type": "number",
+          "description": "Total Grade B"
+        },
+        "gredC": {
+          "type": "number",
+          "description": "Total Grade C"
+        },
+        "gredD": {
+          "type": "number",
+          "description": "Total Grade D"
+        },
+        "gredE": {
+          "type": "number",
+          "description": "Total Grade E"
+        },
+        "gredTL": {
+          "type": "number",
+          "description": "Total TL (Tidak Laksana)"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp when this record was created"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp when this record was last updated"
+        }
+      },
+      "required": ["tahun", "aliran", "jumlahPelajar", "gredA", "gredB", "gredC", "gredD", "gredE", "gredTL", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/shared_pajsk_data/{pajskDataId}": {
+      "schema": {
+        "$ref": "#/entities/PajskDataEntry"
+      },
+      "description": "Contains PAJSK data records shared across all teachers"
+    }
+  }
+}
